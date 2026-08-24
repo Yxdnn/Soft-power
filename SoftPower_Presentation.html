@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soft Power Thailand — การพัฒนาผลิตภัณฑ์ต้นแบบ</title>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   SOFT POWER THAILAND — PREMIUM THEME
+   ======================================== */
+
+:root {
+  --pink-100: #FFF0F3;
+  --pink-200: #FCDCE5;
+  --pink-300: #F4B4C9;
+  --pink-400: #E88AAD;
+  --pink-500: #D4688E;
+  --pink-600: #B44B6F;
+  --pink-700: #8B3654;
+  --pink-800: #5E2238;
+  
+  --gold-100: #FDF6E3;
+  --gold-200: #F5E6B8;
+  --gold-300: #E8CC7A;
+  --gold-400: #D4A853;
+  --gold-500: #B8943F;
+  --gold-600: #96762A;
+  --gold-700: #725818;
+  
+  --sage-100: #F0F5EE;
+  --sage-200: #D5E4D1;
+  --sage-300: #AECBA7;
+  --sage-400: #7EAD74;
+  --sage-500: #5E8F55;
+  --sage-600: #436B3B;
+  
+  --teal-100: #EBF5F5;
+  --teal-200: #C6E3E3;
+  --teal-300: #8BC4C4;
+  --teal-400: #5BA0A0;
+  --teal-500: #3E7A7A;
+  --teal-600: #285656;
+  
+  --coral-100: #FEF0EC;
+  --coral-200: #F9D5CB;
+  --coral-300: #F0AE9C;
+  --coral-400: #E0826E;
+  --coral-500: #C4614D;
+  --coral-600: #9B4436;
+  
+  --cream: #FDF8F2;
+  --dark: #1E1520;
+  --dark-warm: #2D1F2B;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Prompt', 'Sarabun', sans-serif;
+  background: var(--dark);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== SLIDE SYSTEM ===== */
+.slides-wrapper { width: 100vw; height: 100vh; position: relative; }
+
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.96) translateY(10px);
+  transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1), transform 0.9s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: all;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeInDown { from { opacity:0; transform:translateY(-40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeInLeft { from { opacity:0; transform:translateX(-50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes fadeInRight { from { opacity:0; transform:translateX(50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes fadeInScale { from { opacity:0; transform:scale(0.7); } to { opacity:1; transform:scale(1); } }
+@keyframes floatSlow { 0%,100%{transform:translateY(0) rotate(0deg);} 33%{transform:translateY(-15px) rotate(3deg);} 66%{transform:translateY(-25px) rotate(-2deg);} }
+@keyframes floatReverse { 0%,100%{transform:translateY(0) rotate(0deg);} 33%{transform:translateY(15px) rotate(-2deg);} 66%{transform:translateY(10px) rotate(3deg);} }
+@keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+@keyframes pulse { 0%,100%{opacity:0.15;} 50%{opacity:0.35;} }
+@keyframes drawWidth { from{width:0;} to{width:100%;} }
+@keyframes shimmer { 0%{background-position:-200% center;} 100%{background-position:200% center;} }
+@keyframes gentleBob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+@keyframes ripple { 0%{box-shadow:0 0 0 0 rgba(232,138,173,0.3);} 70%{box-shadow:0 0 0 20px rgba(232,138,173,0);} 100%{box-shadow:0 0 0 0 rgba(232,138,173,0);} }
+
+.slide.active .anim-up { animation: fadeInUp 0.8s ease-out forwards; }
+.slide.active .anim-down { animation: fadeInDown 0.8s ease-out forwards; }
+.slide.active .anim-left { animation: fadeInLeft 0.8s ease-out forwards; }
+.slide.active .anim-right { animation: fadeInRight 0.8s ease-out forwards; }
+.slide.active .anim-scale { animation: fadeInScale 0.8s ease-out forwards; }
+
+.d0 { animation-delay: 0s !important; }
+.d1 { animation-delay: 0.12s !important; opacity: 0; }
+.d2 { animation-delay: 0.24s !important; opacity: 0; }
+.d3 { animation-delay: 0.36s !important; opacity: 0; }
+.d4 { animation-delay: 0.48s !important; opacity: 0; }
+.d5 { animation-delay: 0.6s !important; opacity: 0; }
+.d6 { animation-delay: 0.72s !important; opacity: 0; }
+.d7 { animation-delay: 0.84s !important; opacity: 0; }
+.d8 { animation-delay: 0.96s !important; opacity: 0; }
+.d9 { animation-delay: 1.08s !important; opacity: 0; }
+
+/* ===== DECORATIVE ELEMENTS ===== */
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.deco-float { animation: floatSlow 18s ease-in-out infinite; }
+.deco-float-rev { animation: floatReverse 22s ease-in-out infinite; }
+.deco-pulse { animation: pulse 6s ease-in-out infinite; }
+.deco-spin { animation: spin 120s linear infinite; }
+
+.deco-mandala {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+.deco-mandala svg { width: 100%; height: 100%; }
+
+/* Lotus SVG decoration */
+.lotus-deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lotus-deco svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Ornamental line */
+.ornament-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 1.2rem 0;
+}
+
+.ornament-line .line {
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0.4;
+}
+
+.ornament-line .diamond {
+  width: 8px; height: 8px;
+  transform: rotate(45deg);
+  border: 1px solid currentColor;
+  opacity: 0.5;
+}
+
+/* Corner ornaments */
+.corner-ornament {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.corner-ornament.top-left { top: 20px; left: 20px; }
+.corner-ornament.top-right { top: 20px; right: 20px; transform: scaleX(-1); }
+.corner-ornament.bottom-left { bottom: 20px; left: 20px; transform: scaleY(-1); }
+.corner-ornament.bottom-right { bottom: 20px; right: 20px; transform: scale(-1); }
+
+/* ===== TITLE SLIDE ===== */
+.slide-title {
+  background: linear-gradient(160deg, #0D0610 0%, #1A0E1C 20%, #2D162B 45%, #3A1C35 65%, #2A1220 85%, #120810 100%);
+}
+
+.slide-title::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse 800px 600px at 15% 85%, rgba(232,138,173,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 500px at 85% 15%, rgba(212,168,83,0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 400px at 50% 50%, rgba(180,75,111,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 300px 300px at 70% 70%, rgba(244,180,201,0.05) 0%, transparent 50%);
+}
+
+.title-wrap {
+  text-align: center;
+  z-index: 5;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.title-lotus-icon {
+  width: 80px; height: 80px;
+  margin: 0 auto 2rem;
+  animation: gentleBob 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(244,180,201,0.5));
+}
+
+.title-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+
+.title-main-text {
+  font-family: 'Prompt', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FCDCE5 35%, #F4B4C9 55%, #E8CC7A 85%, #D4A853 100%);
+  background-size: 200% auto;
+  animation: shimmer 6s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-tagline {
+  font-family: 'Prompt', sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--pink-400);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.title-desc {
+  font-family: 'Prompt', sans-serif;
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  line-height: 2;
+  max-width: 620px;
+  margin: 0 auto;
+  letter-spacing: 0.02em;
+}
+
+.title-badge {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.6rem 2rem;
+  border: 1px solid rgba(212,168,83,0.3);
+  border-radius: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.15em;
+}
+
+/* ===== SECTION HEADERS ===== */
+.section-header-wrap {
+  text-align: center;
+  z-index: 5;
+  padding: 3rem;
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.02em;
+}
+
+.section-en-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.section-th-title {
+  font-family: 'Prompt', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.section-divider {
+  width: 80px;
+  height: 2px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: -4px; left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px; height: 10px;
+  border: 1px solid;
+  border-color: inherit;
+  background: inherit;
+}
+
+/* ===== CONTENT AREA ===== */
+.content-area {
+  width: 100%;
+  height: 100%;
+  padding: 3.5rem 5.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 5;
+  position: relative;
+}
+
+.content-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.content-title {
+  font-family: 'Prompt', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+}
+
+.content-body {
+  font-family: 'Prompt', sans-serif;
+  font-size: 1.1rem;
+  line-height: 2;
+  font-weight: 300;
+  opacity: 0.85;
+  letter-spacing: 0.01em;
+}
+
+/* ===== GRID LAYOUTS ===== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  align-items: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  width: 100%;
+}
+
+/* ===== PREMIUM CARDS ===== */
+.p-card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s;
+  border: 1px solid rgba(255,255,255,0.9);
+}
+
+.p-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  border-radius: 20px 20px 0 0;
+}
+
+.p-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.p-card-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  color: white;
+  position: relative;
+}
+
+.p-card-title {
+  font-family: 'Prompt', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: var(--dark);
+}
+
+.p-card-text {
+  font-family: 'Prompt', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  font-weight: 300;
+  color: #4A3A3F;
+}
+
+/* ===== ACCENT BOX ===== */
+.accent-box {
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  position: relative;
+  margin: 1rem 0;
+  line-height: 1.9;
+}
+
+.accent-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  border-radius: 4px 0 0 4px;
+}
+
+.accent-box-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.accent-box-text {
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.85;
+  line-height: 1.9;
+}
+
+/* ===== FLOW STEPS ===== */
+.flow-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flow-step {
+  text-align: center;
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  min-width: 140px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.flow-step:hover { transform: scale(1.05); box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+
+.flow-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.flow-label {
+  font-family: 'Prompt', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.flow-desc {
+  font-family: 'Prompt', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+.flow-arrow {
+  font-size: 1.5rem;
+  opacity: 0.25;
+  font-weight: 300;
+}
+
+/* ===== ICON GRID ===== */
+.icon-grid {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.icon-cell {
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.icon-cell:hover { transform: translateY(-5px); }
+
+.icon-cell .ic {
+  width: 64px; height: 64px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-cell .ic::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+}
+
+.icon-cell .ic-label {
+  font-family: 'Prompt', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ===== QUOTE ===== */
+.premium-quote {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.premium-quote::before,
+.premium-quote::after {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  position: absolute;
+  opacity: 0.1;
+  line-height: 1;
+}
+
+.premium-quote::before { content: '\201C'; top: 0; left: 1rem; }
+.premium-quote::after { content: '\201D'; bottom: -2rem; right: 1rem; }
+
+.premium-quote .q-text {
+  font-family: 'Prompt', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ===== THEMED SLIDES ===== */
+
+/* PINK THEME */
+.t-pink {
+  background: linear-gradient(155deg, #FFF5F7 0%, #FDE8EF 25%, #F9D4E0 55%, #F0BFD0 80%, #ECCDD9 100%);
+  color: var(--dark);
+}
+.t-pink::before {
+  content: '';
+  position: absolute; top:0; left:0; width:100%; height:100%;
+  background:
+    radial-gradient(ellipse 500px 400px at 90% 10%, rgba(244,180,201,0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 10% 90%, rgba(252,220,229,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.t-pink .section-num { color: var(--pink-500); }
+.t-pink .section-en-title { color: var(--pink-400); }
+.t-pink .section-th-title { color: var(--pink-700); }
+.t-pink .section-divider { background: linear-gradient(90deg, transparent, var(--pink-400), transparent); border-color: var(--pink-400); }
+.t-pink .content-label { color: var(--pink-500); }
+.t-pink .content-title { color: var(--pink-700); }
+.t-pink .ornament-line { color: var(--pink-400); }
+.t-pink .corner-ornament svg * { stroke: var(--pink-400); }
+.t-pink .p-card::before { background: linear-gradient(90deg, var(--pink-300), var(--pink-500)); }
+.t-pink .accent-box { background: rgba(244,180,201,0.12); }
+.t-pink .accent-box::before { background: var(--pink-400); }
+
+/* GOLD THEME */
+.t-gold {
+  background: linear-gradient(155deg, #FFFCF2 0%, #FBF0D4 25%, #F5E2B0 55%, #EDD598 80%, #F0DEB5 100%);
+  color: var(--dark);
+}
+.t-gold::before {
+  content: '';
+  position: absolute; top:0; left:0; width:100%; height:100%;
+  background:
+    radial-gradient(ellipse 500px 400px at 85% 15%, rgba(232,204,122,0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 350px at 15% 85%, rgba(245,230,184,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.t-gold .section-num { color: var(--gold-400); }
+.t-gold .section-en-title { color: var(--gold-500); }
+.t-gold .section-th-title { color: var(--gold-700); }
+.t-gold .section-divider { background: linear-gradient(90deg, transparent, var(--gold-400), transparent); border-color: var(--gold-400); }
+.t-gold .content-label { color: var(--gold-500); }
+.t-gold .content-title { color: var(--gold-700); }
+.t-gold .ornament-line { color: var(--gold-400); }
+.t-gold .p-card::before { background: linear-gradient(90deg, var(--gold-300), var(--gold-500)); }
+.t-gold .accent-box { background: rgba(232,204,122,0.12); }
+.t-gold .accent-box::before { background: var(--gold-400); }
+
+/* SAGE THEME */
+.t-sage {
+  background: linear-gradient(155deg, #F5F9F3 0%, #E3EEE0 25%, #C9DEC3 55%, #B4D0AC 80%, #C5DCBE 100%);
+  color: var(--dark);
+}
+.t-sage::before {
+  content: '';
+  position: absolute; top:0; left:0; width:100%; height:100%;
+  background:
+    radial-gradient(ellipse 500px 400px at 80% 20%, rgba(174,203,167,0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 350px at 20% 80%, rgba(213,228,209,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.t-sage .section-num { color: var(--sage-400); }
+.t-sage .section-en-title { color: var(--sage-500); }
+.t-sage .section-th-title { color: var(--sage-600); }
+.t-sage .section-divider { background: linear-gradient(90deg, transparent, var(--sage-400), transparent); border-color: var(--sage-400); }
+.t-sage .content-label { color: var(--sage-500); }
+.t-sage .content-title { color: var(--sage-600); }
+.t-sage .ornament-line { color: var(--sage-400); }
+.t-sage .p-card::before { background: linear-gradient(90deg, var(--sage-300), var(--sage-500)); }
+.t-sage .accent-box { background: rgba(174,203,167,0.12); }
+.t-sage .accent-box::before { background: var(--sage-400); }
+
+/* TEAL THEME */
+.t-teal {
+  background: linear-gradient(155deg, #F0F7F7 0%, #D4EAEA 25%, #B0D6D6 55%, #95C5C5 80%, #ACD3D3 100%);
+  color: var(--dark);
+}
+.t-teal::before {
+  content: '';
+  position: absolute; top:0; left:0; width:100%; height:100%;
+  background:
+    radial-gradient(ellipse 500px 400px at 15% 20%, rgba(139,196,196,0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 350px at 85% 80%, rgba(198,227,227,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.t-teal .section-num { color: var(--teal-400); }
+.t-teal .section-en-title { color: var(--teal-500); }
+.t-teal .section-th-title { color: var(--teal-600); }
+.t-teal .section-divider { background: linear-gradient(90deg, transparent, var(--teal-400), transparent); border-color: var(--teal-400); }
+.t-teal .content-label { color: var(--teal-500); }
+.t-teal .content-title { color: var(--teal-600); }
+.t-teal .ornament-line { color: var(--teal-400); }
+.t-teal .p-card::before { background: linear-gradient(90deg, var(--teal-300), var(--teal-500)); }
+.t-teal .accent-box { background: rgba(139,196,196,0.12); }
+.t-teal .accent-box::before { background: var(--teal-400); }
+
+/* CORAL THEME */
+.t-coral {
+  background: linear-gradient(155deg, #FFF5F2 0%, #FBE0D9 25%, #F3C8BC 55%, #EBB5A7 80%, #F0C7BC 100%);
+  color: var(--dark);
+}
+.t-coral::before {
+  content: '';
+  position: absolute; top:0; left:0; width:100%; height:100%;
+  background:
+    radial-gradient(ellipse 500px 400px at 80% 15%, rgba(240,174,156,0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 350px at 20% 85%, rgba(249,213,203,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.t-coral .section-num { color: var(--coral-400); }
+.t-coral .section-en-title { color: var(--coral-500); }
+.t-coral .section-th-title { color: var(--coral-600); }
+.t-coral .section-divider { background: linear-gradient(90deg, transparent, var(--coral-400), transparent); border-color: var(--coral-400); }
+.t-coral .content-label { color: var(--coral-500); }
+.t-coral .content-title { color: var(--coral-600); }
+.t-coral .ornament-line { color: var(--coral-400); }
+.t-coral .p-card::before { background: linear-gradient(90deg, var(--coral-300), var(--coral-500)); }
+.t-coral .accent-box { background: rgba(240,174,156,0.12); }
+.t-coral .accent-box::before { background: var(--coral-400); }
+
+/* DARK (closing) */
+.t-dark {
+  background: linear-gradient(160deg, #0D0610 0%, #1A0E1C 20%, #2D162B 45%, #3A1C35 65%, #2A1220 85%, #120810 100%);
+  color: #fff;
+}
+.t-dark::before {
+  content: '';
+  position: absolute; top:0; left:0; width:100%; height:100%;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(232,138,173,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(212,168,83,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ===== NAVIGATION ===== */
+.nav-bar {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 999;
+  background: rgba(30,21,32,0.6);
+  backdrop-filter: blur(25px);
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.nav-btn {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+.nav-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.nav-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.nav-dot.active {
+  background: var(--pink-400);
+  width: 28px;
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(232,138,173,0.4);
+}
+
+.nav-counter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.15em;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink-400), var(--gold-400), var(--sage-400), var(--teal-400), var(--coral-400));
+  background-size: 200%;
+  z-index: 999;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px rgba(232,138,173,0.4);
+}
+
+/* Product item row */
+.product-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.product-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  border: 1px solid rgba(255,255,255,0.9);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.product-item .pi-icon {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: white;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.product-item .pi-content { flex: 1; }
+.product-item .pi-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem; color: var(--dark); }
+.product-item .pi-desc { font-size: 0.92rem; font-weight: 300; line-height: 1.7; color: #5A4A4F; }
+
+/* Metric cards */
+.metric-cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.metric-card {
+  flex: 1;
+  min-width: 100px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 16px;
+  padding: 1.2rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.9);
+  transition: transform 0.3s;
+}
+
+.metric-card:hover { transform: translateY(-4px); }
+
+.metric-card .mc-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  margin: 0 auto 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.metric-card .mc-label { font-size: 0.85rem; font-weight: 500; }
+
+/* Chain flow */
+.chain-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.chain-item {
+  text-align: center;
+}
+
+.chain-item .ci-icon {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.chain-item .ci-label { font-size: 0.8rem; font-weight: 500; }
+.chain-arrow { font-size: 1.3rem; opacity: 0.3; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .content-area { padding: 2rem 2.5rem; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .title-main-text { font-size: 2.4rem; }
+  .section-th-title { font-size: 2rem; }
+  .section-num { font-size: 5rem; }
+  .flow-wrap { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar" style="width:0%;"></div>
+
+<div class="slides-wrapper">
+
+<!-- ============================== SLIDE 0: TITLE ============================== -->
+<div class="slide slide-title active" data-slide="0">
+  <!-- Deco circles -->
+  <div class="deco-circle deco-float" style="width:500px;height:500px;top:-150px;right:-120px;background:radial-gradient(circle,rgba(244,180,201,0.08),transparent 70%);"></div>
+  <div class="deco-circle deco-float-rev" style="width:400px;height:400px;bottom:-100px;left:-80px;background:radial-gradient(circle,rgba(212,168,83,0.06),transparent 70%);"></div>
+  <div class="deco-circle deco-pulse" style="width:300px;height:300px;top:20%;left:10%;background:radial-gradient(circle,rgba(180,75,111,0.06),transparent 70%);"></div>
+  <div class="deco-circle deco-float" style="width:200px;height:200px;bottom:30%;right:10%;background:radial-gradient(circle,rgba(244,180,201,0.05),transparent 70%);animation-delay:-8s;"></div>
+  
+  <!-- Mandala decoration -->
+  <div class="deco-mandala deco-spin" style="width:700px;height:700px;top:-200px;right:-200px;">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(244,180,201,0.3)" stroke-width="0.3"/>
+      <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(212,168,83,0.2)" stroke-width="0.3"/>
+      <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(244,180,201,0.15)" stroke-width="0.3"/>
+      <g stroke="rgba(244,180,201,0.15)" stroke-width="0.3" fill="none">
+        <path d="M100,10 Q130,50 100,100 Q70,50 100,10"/>
+        <path d="M100,10 Q130,50 100,100 Q70,50 100,10" transform="rotate(45,100,100)"/>
+        <path d="M100,10 Q130,50 100,100 Q70,50 100,10" transform="rotate(90,100,100)"/>
+        <path d="M100,10 Q130,50 100,100 Q70,50 100,10" transform="rotate(135,100,100)"/>
+        <path d="M100,10 Q130,50 100,100 Q70,50 100,10" transform="rotate(180,100,100)"/>
+        <path d="M100,10 Q130,50 100,100 Q70,50 100,10" transform="rotate(225,100,100)"/>
+        <path d="M100,10 Q130,50 100,100 Q70,50 100,10" transform="rotate(270,100,100)"/>
+        <path d="M100,10 Q130,50 100,100 Q70,50 100,10" transform="rotate(315,100,100)"/>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="deco-mandala deco-spin" style="width:500px;height:500px;bottom:-150px;left:-150px;animation-direction:reverse;">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(212,168,83,0.2)" stroke-width="0.3"/>
+      <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(212,168,83,0.15)" stroke-width="0.3"/>
+      <g stroke="rgba(212,168,83,0.12)" stroke-width="0.3" fill="none">
+        <path d="M100,15 Q125,55 100,100 Q75,55 100,15"/>
+        <path d="M100,15 Q125,55 100,100 Q75,55 100,15" transform="rotate(60,100,100)"/>
+        <path d="M100,15 Q125,55 100,100 Q75,55 100,15" transform="rotate(120,100,100)"/>
+        <path d="M100,15 Q125,55 100,100 Q75,55 100,15" transform="rotate(180,100,100)"/>
+        <path d="M100,15 Q125,55 100,100 Q75,55 100,15" transform="rotate(240,100,100)"/>
+        <path d="M100,15 Q125,55 100,100 Q75,55 100,15" transform="rotate(300,100,100)"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Lotus SVG icon -->
+  <div class="title-wrap">
+    <div class="title-lotus-icon anim-scale">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lotusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#F4B4C9"/>
+            <stop offset="50%" style="stop-color:#E88AAD"/>
+            <stop offset="100%" style="stop-color:#D4688E"/>
+          </linearGradient>
+        </defs>
+        <!-- Center petal -->
+        <path d="M50,15 Q60,35 50,55 Q40,35 50,15" fill="url(#lotusGrad)" opacity="0.9"/>
+        <!-- Left petals -->
+        <path d="M30,25 Q45,38 40,58 Q28,40 30,25" fill="url(#lotusGrad)" opacity="0.7"/>
+        <path d="M15,40 Q32,45 35,62 Q18,52 15,40" fill="url(#lotusGrad)" opacity="0.5"/>
+        <!-- Right petals -->
+        <path d="M70,25 Q55,38 60,58 Q72,40 70,25" fill="url(#lotusGrad)" opacity="0.7"/>
+        <path d="M85,40 Q68,45 65,62 Q82,52 85,40" fill="url(#lotusGrad)" opacity="0.5"/>
+        <!-- Base -->
+        <ellipse cx="50" cy="62" rx="22" ry="6" fill="url(#lotusGrad)" opacity="0.3"/>
+        <!-- Water ripple -->
+        <ellipse cx="50" cy="72" rx="35" ry="4" fill="none" stroke="#F4B4C9" stroke-width="0.5" opacity="0.3"/>
+        <ellipse cx="50" cy="78" rx="42" ry="4" fill="none" stroke="#F4B4C9" stroke-width="0.3" opacity="0.2"/>
+      </svg>
+    </div>
+    
+    <div class="title-eyebrow anim-up d1">Cultural Product Development</div>
+    <h1 class="title-main-text anim-up d2">การพัฒนาผลิตภัณฑ์ต้นแบบ<br>Soft Power</h1>
+    
+    <div class="ornament-line anim-scale d3" style="color:var(--gold-400);">
+      <span class="line"></span>
+      <span class="diamond"></span>
+      <span class="line"></span>
+    </div>
+    
+    <div class="title-tagline anim-up d4">เปิดกล่อง เปิดโลกท้องถิ่น</div>
+    
+    <p class="title-desc anim-up d5">
+      ผลิตภัณฑ์เล่าเรื่องวัฒนธรรมจังหวัดผ่าน<br>
+      เข็มกลัด ✦ ยาดม ✦ ดินปั้น ✦ กล่องเหล็กคลาสสิก
+    </p>
+    
+    <div class="title-badge anim-up d6">โครงการพัฒนาผลิตภัณฑ์ต้นแบบ Soft Power ไทย</div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 1: OVERVIEW ============================== -->
+<div class="slide t-pink" data-slide="1">
+  <div class="deco-circle deco-float" style="width:500px;height:500px;top:-180px;right:-150px;background:radial-gradient(circle,rgba(244,180,201,0.12),transparent 70%);"></div>
+  <div class="deco-circle deco-float-rev" style="width:350px;height:350px;bottom:-100px;left:-80px;background:radial-gradient(circle,rgba(252,220,229,0.15),transparent 70%);"></div>
+  
+  <!-- Corner ornaments -->
+  <div class="corner-ornament top-left"><svg viewBox="0 0 100 100"><path d="M0,0 Q50,0 50,50 Q0,50 0,0" fill="none" stroke="currentColor" stroke-width="0.5"/><path d="M5,5 Q45,5 45,45 Q5,45 5,5" fill="none" stroke="currentColor" stroke-width="0.3"/></svg></div>
+  <div class="corner-ornament top-right"><svg viewBox="0 0 100 100"><path d="M0,0 Q50,0 50,50 Q0,50 0,0" fill="none" stroke="currentColor" stroke-width="0.5"/><path d="M5,5 Q45,5 45,45 Q5,45 5,5" fill="none" stroke="currentColor" stroke-width="0.3"/></svg></div>
+  <div class="corner-ornament bottom-left"><svg viewBox="0 0 100 100"><path d="M0,0 Q50,0 50,50 Q0,50 0,0" fill="none" stroke="currentColor" stroke-width="0.5"/><path d="M5,5 Q45,5 45,45 Q5,45 5,5" fill="none" stroke="currentColor" stroke-width="0.3"/></svg></div>
+  <div class="corner-ornament bottom-right"><svg viewBox="0 0 100 100"><path d="M0,0 Q50,0 50,50 Q0,50 0,0" fill="none" stroke="currentColor" stroke-width="0.5"/><path d="M5,5 Q45,5 45,45 Q5,45 5,5" fill="none" stroke="currentColor" stroke-width="0.3"/></svg></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">Overview</div>
+    <div class="content-title anim-up d1" style="font-size:2.5rem;">ภาพรวมโครงการ</div>
+    <div class="ornament-line anim-scale d2"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="p-card anim-up d3">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--pink-400),var(--pink-600));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><path d="M9 4v4"/><path d="M15 4v4"/></svg>
+        </div>
+        <div class="p-card-title">แนวคิดหลัก</div>
+        <div class="p-card-text">เปลี่ยนของที่ระลึกธรรมดาให้เป็นสื่อเล่าเรื่องจังหวัด ผ่านกล่องเหล็กคลาสสิกที่บรรจุของสามอย่าง</div>
+      </div>
+      <div class="p-card anim-up d4">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v10l4 4"/></svg>
+        </div>
+        <div class="p-card-title">เป้าหมาย</div>
+        <div class="p-card-text">สร้างการรับรู้ Soft Power ไทยผ่านสถานที่ ความเชื่อ วิถีชีวิต และงานฝีมือของแต่ละจังหวัด</div>
+      </div>
+      <div class="p-card anim-up d5">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--sage-400),var(--sage-600));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="p-card-title">คุณค่า</div>
+        <div class="p-card-text">หนึ่งกล่อง หนึ่งจังหวัด หนึ่งเรื่องราว ทำให้คนอยากรู้จักสถานที่นั้นมากขึ้น</div>
+      </div>
+    </div>
+
+    <div class="icon-grid anim-up d6" style="margin-top:2.5rem;">
+      <div class="icon-cell">
+        <div class="ic" style="background:linear-gradient(135deg,var(--pink-400),var(--pink-600));">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.4 7 11.5 7.3 11.8a1 1 0 001.4 0C13 21.5 20 15.4 20 10a8 8 0 00-8-8z"/></svg>
+        </div>
+        <div class="ic-label">เข็มกลัด</div>
+      </div>
+      <div class="icon-cell">
+        <div class="ic" style="background:linear-gradient(135deg,var(--teal-400),var(--teal-600));">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M6 12h12"/></svg>
+        </div>
+        <div class="ic-label">ยาดม</div>
+      </div>
+      <div class="icon-cell">
+        <div class="ic" style="background:linear-gradient(135deg,var(--coral-400),var(--coral-600));">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C8 2 5 6 5 12c0 4 2 7 3 8h8c1-1 3-4 3-8 0-6-3-10-7-10z"/><path d="M8 20h8v2H8z"/></svg>
+        </div>
+        <div class="ic-label">ดินปั้น</div>
+      </div>
+      <div class="icon-cell">
+        <div class="ic" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M10 6v4"/></svg>
+        </div>
+        <div class="ic-label">กล่องเหล็ก</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 2: SECTION 1 HEADER ============================== -->
+<div class="slide t-pink" data-slide="2">
+  <div class="deco-circle deco-float" style="width:600px;height:600px;top:-250px;left:-200px;background:radial-gradient(circle,rgba(244,180,201,0.1),transparent 70%);"></div>
+  <div class="deco-circle deco-float-rev" style="width:400px;height:400px;bottom:-150px;right:-100px;background:radial-gradient(circle,rgba(212,104,142,0.08),transparent 70%);"></div>
+  
+  <div class="deco-mandala deco-spin" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.03;">
+    <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="0.3"/><circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.3"/><circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="0.3"/><circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.3"/><g stroke="currentColor" stroke-width="0.3" fill="none"><path d="M100,5 Q120,50 100,100 Q80,50 100,5"/><path d="M100,5 Q120,50 100,100 Q80,50 100,5" transform="rotate(30,100,100)"/><path d="M100,5 Q120,50 100,100 Q80,50 100,5" transform="rotate(60,100,100)"/><path d="M100,5 Q120,50 100,100 Q80,50 100,5" transform="rotate(90,100,100)"/><path d="M100,5 Q120,50 100,100 Q80,50 100,5" transform="rotate(120,100,100)"/><path d="M100,5 Q120,50 100,100 Q80,50 100,5" transform="rotate(150,100,100)"/></g></svg>
+  </div>
+  
+  <div class="section-header-wrap">
+    <div class="section-num anim-scale">01</div>
+    <div class="section-en-title anim-up d1">Cultural Asset Analysis</div>
+    <div class="section-th-title anim-up d2">การวิเคราะห์ต้นทุนทางวัฒนธรรม</div>
+    <div class="ornament-line anim-scale d3"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 3: CULTURAL DNA ============================== -->
+<div class="slide t-pink" data-slide="3">
+  <div class="deco-circle deco-float" style="width:450px;height:450px;bottom:-150px;right:-120px;background:radial-gradient(circle,rgba(244,180,201,0.1),transparent 70%);"></div>
+  <div class="corner-ornament top-right"><svg viewBox="0 0 100 100"><path d="M0,0 Q50,0 50,50 Q0,50 0,0" fill="none" stroke="var(--pink-400)" stroke-width="0.5"/></svg></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">1.1 Cultural DNA</div>
+    <div class="content-title anim-up d1">รากเหง้าภูมิปัญญา</div>
+    <div class="ornament-line anim-scale d2"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div class="anim-left d3">
+        <div class="content-body" style="margin-bottom:1.5rem;">
+          Cultural DNA ของผลิตภัณฑ์ประกอบด้วย <strong>สถานที่ ความเชื่อ วัฒนธรรม และวิถีชีวิตไทย</strong>
+        </div>
+        <div class="accent-box anim-left d4">
+          <div class="accent-box-title">จุดเด่นที่ไม่เหมือนใคร</div>
+          <div class="accent-box-text">เข็มกลัดนำภาพวัดหรือสถานที่สำคัญที่อาจไม่ได้มีชื่อเสียงมานำเสนอ พร้อมคำสอนหรือคำคมทางศาสนาที่เกี่ยวข้อง</div>
+        </div>
+      </div>
+      <div class="product-row anim-right d4">
+        <div class="product-item">
+          <div class="pi-icon" style="background:linear-gradient(135deg,var(--pink-400),var(--pink-600));">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.4 7 11.5 7.3 11.8a1 1 0 001.4 0C13 21.5 20 15.4 20 10a8 8 0 00-8-8z"/></svg>
+          </div>
+          <div class="pi-content">
+            <div class="pi-title">เข็มกลัด</div>
+            <div class="pi-desc">ภาพสถานที่สำคัญ + คำสอนทางศาสนา เพิ่มมิติความหมาย</div>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="pi-icon" style="background:linear-gradient(135deg,var(--pink-500),var(--pink-700));">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M6 12h12"/></svg>
+          </div>
+          <div class="pi-content">
+            <div class="pi-title">ยาดม</div>
+            <div class="pi-desc">ตัวแทนวิถีชีวิตและความคุ้นเคยแบบไทย ใช้งานได้จริง</div>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="pi-icon" style="background:linear-gradient(135deg,var(--pink-600),var(--pink-800));">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C8 2 5 6 5 12c0 4 2 7 3 8h8c1-1 3-4 3-8 0-6-3-10-7-10z"/><path d="M8 20h8v2H8z"/></svg>
+          </div>
+          <div class="pi-content">
+            <div class="pi-title">ดินปั้น</div>
+            <div class="pi-desc">สัญลักษณ์หรือเอกลักษณ์ของจังหวัด เช่น สัตว์ อาหาร สถานที่</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 4: PAIN POINTS ============================== -->
+<div class="slide t-pink" data-slide="4">
+  <div class="deco-circle deco-float-rev" style="width:500px;height:500px;top:-180px;left:-150px;background:radial-gradient(circle,rgba(244,180,201,0.1),transparent 70%);"></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">1.2 — 1.3 Authentic Value & Pain Points</div>
+    <div class="content-title anim-up d1">คุณค่าแก่นแท้ & ข้อจำกัดในปัจจุบัน</div>
+    <div class="ornament-line anim-scale d2"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div class="anim-left d3">
+        <div style="font-size:1.15rem;font-weight:600;color:var(--pink-700);margin-bottom:1rem;">✦ Authentic Value</div>
+        <div class="content-body" style="margin-bottom:1.5rem;">
+          จุดแข็งทางวัฒนธรรมที่ไม่สามารถลอกเลียนแบบได้ — การนำสถานที่ ความเชื่อ วิถีชีวิต และสัญลักษณ์ของจังหวัดมารวมกันในผลิตภัณฑ์เดียว
+        </div>
+        <div class="accent-box">
+          <div class="accent-box-text">ทำให้ของที่ระลึกไม่ได้เป็นเพียงสิ่งของ แต่เป็น<strong>ตัวกลางในการเล่าเรื่องวัฒนธรรม</strong></div>
+        </div>
+      </div>
+      <div class="anim-right d4">
+        <div style="font-size:1.15rem;font-weight:600;color:var(--coral-500);margin-bottom:1rem;">⚠ Current Pain Points</div>
+        <div class="content-body" style="margin-bottom:1rem;">
+          วัฒนธรรมและสถานที่ที่มีคุณค่ายังไม่ได้รับความสนใจเท่าที่ควร
+        </div>
+        <div class="accent-box" style="background:rgba(224,130,110,0.1);">
+          <div class="accent-box-title" style="color:var(--coral-500);">ขาด "เรื่องราว" (Storytelling)</div>
+          <div class="accent-box-text">ของที่ระลึกทั่วไปเน้นจดจำผ่านภาพ แต่ไม่ได้บอกเล่าเรื่องราวเบื้องหลัง ทำให้เสียโอกาสในการสร้าง Soft Power — เพราะ Soft Power เกิดจากการทำให้คน<strong>สนใจ เข้าใจ จดจำ</strong> และอยากมีส่วนร่วม</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 5: SECTION 2 HEADER ============================== -->
+<div class="slide t-gold" data-slide="5">
+  <div class="deco-circle deco-float" style="width:550px;height:550px;top:-200px;right:-160px;background:radial-gradient(circle,rgba(232,204,122,0.1),transparent 70%);"></div>
+  <div class="deco-circle deco-float-rev" style="width:400px;height:400px;bottom:-130px;left:-100px;background:radial-gradient(circle,rgba(245,230,184,0.12),transparent 70%);"></div>
+  <div class="deco-mandala deco-spin" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.03;"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="0.3"/><circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.3"/><g stroke="currentColor" stroke-width="0.3" fill="none"><path d="M100,5 Q120,50 100,100 Q80,50 100,5"/><path d="M100,5 Q120,50 100,100 Q80,50 100,5" transform="rotate(45,100,100)"/><path d="M100,5 Q120,50 100,100 Q80,50 100,5" transform="rotate(90,100,100)"/><path d="M100,5 Q120,50 100,100 Q80,50 100,5" transform="rotate(135,100,100)"/></g></svg></div>
+  
+  <div class="section-header-wrap">
+    <div class="section-num anim-scale">02</div>
+    <div class="section-en-title anim-up d1">Modern Transformation & Value Creation</div>
+    <div class="section-th-title anim-up d2">การแปลงมูลค่าและความร่วมสมัย</div>
+    <div class="ornament-line anim-scale d3"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 6: CONTEMPORARY CONCEPT ============================== -->
+<div class="slide t-gold" data-slide="6">
+  <div class="deco-circle deco-float" style="width:400px;height:400px;bottom:-120px;right:-100px;background:radial-gradient(circle,rgba(232,204,122,0.1),transparent 70%);"></div>
+  <div class="corner-ornament top-left"><svg viewBox="0 0 100 100"><path d="M0,0 Q50,0 50,50 Q0,50 0,0" fill="none" stroke="var(--gold-400)" stroke-width="0.5"/></svg></div>
+  <div class="corner-ornament bottom-right"><svg viewBox="0 0 100 100"><path d="M0,0 Q50,0 50,50 Q0,50 0,0" fill="none" stroke="var(--gold-400)" stroke-width="0.5"/></svg></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">2.1 Contemporary Concept</div>
+    <div class="content-title anim-up d1">แนวคิดการประยุกต์</div>
+    
+    <div class="premium-quote anim-scale d2" style="margin:0.5rem 0 1.5rem;">
+      <div class="q-text" style="color:var(--gold-700);">เปิดกล่อง เปิดโลกท้องถิ่น</div>
+    </div>
+    
+    <div class="grid-3 anim-up d3">
+      <div class="p-card">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <div class="p-card-title">กล่องเหล็กคลาสสิก</div>
+        <div class="p-card-text">สร้างความรู้สึกเหมือนกำลังเปิดกล่องเก็บของสะสม หรือกล่องความทรงจำ</div>
+      </div>
+      <div class="p-card">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--gold-500),var(--gold-700));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+        </div>
+        <div class="p-card-title">ผสมเก่ากับใหม่</div>
+        <div class="p-card-text">นำองค์ประกอบดั้งเดิมของไทยมาผสมกับรูปแบบผลิตภัณฑ์ร่วมสมัย ให้คนรุ่นใหม่พกพาได้</div>
+      </div>
+      <div class="p-card">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-700));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        </div>
+        <div class="p-card-title">จากของที่ระลึกสู่เรื่องเล่า</div>
+        <div class="p-card-text">เปลี่ยน "ของที่ระลึกจากสถานที่" ให้กลายเป็น "กล่องเรื่องราวที่ทำให้อยากรู้จักสถานที่"</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 7: PRODUCT BLUEPRINT ============================== -->
+<div class="slide t-gold" data-slide="7">
+  <div class="deco-circle deco-float-rev" style="width:450px;height:450px;top:-150px;left:-120px;background:radial-gradient(circle,rgba(232,204,122,0.1),transparent 70%);"></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">2.2 Product Blueprint</div>
+    <div class="content-title anim-up d1">รายละเอียดผลิตภัณฑ์ต้นแบบ</div>
+    <div class="ornament-line anim-scale d2"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div class="anim-left d3">
+        <div class="accent-box" style="margin-bottom:1.5rem;">
+          <div class="accent-box-title" style="font-size:1.2rem;">กล่องเหล็กคลาสสิก 1 กล่อง</div>
+          <div class="accent-box-text">ภายในประกอบด้วยองค์ประกอบหลัก 3 ส่วน ทำให้ผู้ใช้สามารถเก็บสะสมผลิตภัณฑ์จากจังหวัดต่างๆ ได้ แต่ละกล่องจะมีเรื่องราวและเอกลักษณ์แตกต่างกัน</div>
+        </div>
+      </div>
+      <div class="product-row anim-right d4">
+        <div class="product-item">
+          <div class="pi-icon" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));">①</div>
+          <div class="pi-content">
+            <div class="pi-title">เข็มกลัดวงกลม</div>
+            <div class="pi-desc">ภาพวัด สถานที่ หรือสัญลักษณ์สำคัญ + คำสอนทางศาสนา</div>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="pi-icon" style="background:linear-gradient(135deg,var(--gold-500),var(--gold-700));">②</div>
+          <div class="pi-content">
+            <div class="pi-title">ยาดม</div>
+            <div class="pi-desc">ของใช้ที่มีความเป็นไทย ออกแบบให้สอดคล้องกับเรื่องราวของกล่อง</div>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="pi-icon" style="background:linear-gradient(135deg,var(--gold-600),var(--gold-700));">③</div>
+          <div class="pi-content">
+            <div class="pi-title">ดินปั้น</div>
+            <div class="pi-desc">ชิ้นงานศิลปะปั้นเป็นสัญลักษณ์ของจังหวัด เช่น สัตว์ อาหาร สถานที่</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 8: EMOTIONAL BRANDING ============================== -->
+<div class="slide t-gold" data-slide="8">
+  <div class="deco-circle deco-float" style="width:400px;height:400px;top:-120px;right:-100px;background:radial-gradient(circle,rgba(232,204,122,0.1),transparent 70%);"></div>
+  
+  <div class="content-area" style="text-align:center;">
+    <div class="content-label anim-up" style="text-align:center;">2.3 Emotional Branding & Storytelling</div>
+    <div class="content-title anim-up d1" style="text-align:center;">กลยุทธ์การเล่าเรื่องที่สร้างความผูกพัน</div>
+    
+    <div class="premium-quote anim-scale d2" style="margin:0.5rem 0 1.5rem;">
+      <div class="q-text" style="color:var(--gold-700);font-size:1.8rem;">หนึ่งกล่อง ✦ หนึ่งจังหวัด ✦ หนึ่งเรื่องราว</div>
+    </div>
+    
+    <div class="content-body anim-up d3" style="text-align:center;max-width:700px;margin:0 auto 2rem;font-size:1.1rem;">
+      เมื่อเปิดกล่อง ผู้ใช้งานจะพบสิ่งของหลายประเภทที่เป็นตัวแทนของจังหวัดเดียวกัน เรื่องราวเกิดจากการนำ สถานที่ + ความเชื่อ + วิถีชีวิต + งานฝีมือ มารวมกัน
+    </div>
+    
+    <div class="chain-flow anim-up d4">
+      <div class="chain-item">
+        <div class="ci-icon" style="background:linear-gradient(135deg,var(--gold-300),var(--gold-500));">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.4 7 11.5 7.3 11.8a1 1 0 001.4 0C13 21.5 20 15.4 20 10a8 8 0 00-8-8z"/></svg>
+        </div>
+        <div class="ci-label">เข็มกลัด</div>
+        <div style="font-size:0.7rem;opacity:0.5;font-weight:300;">เริ่มเรื่อง</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item">
+        <div class="ci-icon" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C8 2 5 6 5 12c0 4 2 7 3 8h8c1-1 3-4 3-8 0-6-3-10-7-10z"/><path d="M8 20h8v2H8z"/></svg>
+        </div>
+        <div class="ci-label">ดินปั้น</div>
+        <div style="font-size:0.7rem;opacity:0.5;font-weight:300;">เอกลักษณ์</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item">
+        <div class="ci-icon" style="background:linear-gradient(135deg,var(--gold-500),var(--gold-700));">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M6 12h12"/></svg>
+        </div>
+        <div class="ci-label">ยาดม</div>
+        <div style="font-size:0.7rem;opacity:0.5;font-weight:300;">วิถีไทย</div>
+      </div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item">
+        <div class="ci-icon" style="background:linear-gradient(135deg,var(--pink-400),var(--pink-600));box-shadow:0 0 20px rgba(232,138,173,0.3);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="ci-label" style="font-weight:700;">ความผูกพัน</div>
+        <div style="font-size:0.7rem;opacity:0.5;font-weight:300;">Connect & Charm</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 9: SECTION 3 HEADER ============================== -->
+<div class="slide t-sage" data-slide="9">
+  <div class="deco-circle deco-float" style="width:600px;height:600px;bottom:-250px;right:-200px;background:radial-gradient(circle,rgba(174,203,167,0.1),transparent 70%);"></div>
+  <div class="deco-circle deco-float-rev" style="width:350px;height:350px;top:-100px;left:-80px;background:radial-gradient(circle,rgba(213,228,209,0.12),transparent 70%);"></div>
+  <div class="deco-mandala deco-spin" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.03;"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.3"/><circle cx="100" cy="100" r="65" fill="none" stroke="currentColor" stroke-width="0.3"/><g stroke="currentColor" stroke-width="0.3" fill="none"><path d="M100,10 Q118,50 100,100 Q82,50 100,10"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(36,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(72,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(108,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(144,100,100)"/></g></svg></div>
+  
+  <div class="section-header-wrap">
+    <div class="section-num anim-scale">03</div>
+    <div class="section-en-title anim-up d1">Market Positioning & Target Audience</div>
+    <div class="section-th-title anim-up d2">การวางตำแหน่งและตลาดเป้าหมาย</div>
+    <div class="ornament-line anim-scale d3"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 10: VALUE PROPOSITION ============================== -->
+<div class="slide t-sage" data-slide="10">
+  <div class="deco-circle deco-float" style="width:450px;height:450px;top:-150px;right:-120px;background:radial-gradient(circle,rgba(174,203,167,0.1),transparent 70%);"></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">3.1 — 3.2 Target & Value</div>
+    <div class="content-title anim-up d1">กลุ่มเป้าหมาย & คุณค่าใหม่</div>
+    <div class="ornament-line anim-scale d2"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div class="anim-left d3">
+        <div style="font-size:1.15rem;font-weight:600;color:var(--sage-600);margin-bottom:1rem;">กลุ่มเป้าหมาย</div>
+        <div class="p-card" style="margin-bottom:1rem;">
+          <div class="p-card-title">ตลาดในประเทศ (Domestic)</div>
+          <div class="p-card-text">คนไทยที่สนใจวัฒนธรรมท้องถิ่น นักสะสม นักท่องเที่ยวชาวไทย</div>
+        </div>
+        <div class="p-card">
+          <div class="p-card-title">ตลาดสากล (Global Market)</div>
+          <div class="p-card-text">นักท่องเที่ยวต่างชาติ ผู้สนใจวัฒนธรรมเอเชีย ของสะสมจากทั่วโลก</div>
+        </div>
+      </div>
+      <div class="anim-right d4">
+        <div style="font-size:1.15rem;font-weight:600;color:var(--sage-600);margin-bottom:1rem;">คุณค่าใหม่ (Value Proposition)</div>
+        <div class="accent-box" style="font-size:1.05rem;">
+          <div class="accent-box-title">เปลี่ยนของใช้ธรรมดาให้เป็นสื่อเล่าเรื่องจังหวัด</div>
+          <div class="accent-box-text">
+            กลายเป็นสื่อที่ถ่ายทอดเรื่องราวและ Soft Power ของจังหวัดที่ไม่ค่อยเป็นที่รู้จัก<br><br>
+            ผสมผสาน <strong>ของสะสม + งานศิลปะ + ของใช้ที่มีความเป็นไทย</strong> ไว้ในกล่องเดียว ให้ผู้บริโภคได้รับทั้งความสวยงาม ความรู้ และประสบการณ์ค้นพบจังหวัดใหม่
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 11: EXPERIENCE DESIGN ============================== -->
+<div class="slide t-sage" data-slide="11">
+  <div class="deco-circle deco-float-rev" style="width:400px;height:400px;bottom:-120px;left:-100px;background:radial-gradient(circle,rgba(174,203,167,0.1),transparent 70%);"></div>
+  <div class="corner-ornament top-right"><svg viewBox="0 0 100 100"><path d="M0,0 Q50,0 50,50 Q0,50 0,0" fill="none" stroke="var(--sage-400)" stroke-width="0.5"/></svg></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">3.3 Experience Design</div>
+    <div class="content-title anim-up d1">ประสบการณ์ของผู้บริโภค 5 ขั้นตอน</div>
+    <div class="ornament-line anim-scale d2"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <div class="flow-wrap" style="margin-top:2rem;">
+      <div class="flow-step anim-up d3" style="background:rgba(174,203,167,0.18);border:1px solid rgba(174,203,167,0.25);">
+        <div class="flow-num" style="color:var(--sage-400);">1</div>
+        <div class="flow-label" style="color:var(--sage-600);">Discover</div>
+        <div class="flow-desc">เห็นกล่องเหล็ก<br>เกิดความสนใจ</div>
+      </div>
+      <div class="flow-arrow anim-up d3">→</div>
+      <div class="flow-step anim-up d4" style="background:rgba(174,203,167,0.18);border:1px solid rgba(174,203,167,0.25);">
+        <div class="flow-num" style="color:var(--sage-400);">2</div>
+        <div class="flow-label" style="color:var(--sage-600);">Open</div>
+        <div class="flow-desc">เปิดกล่อง<br>ค้นพบองค์ประกอบ</div>
+      </div>
+      <div class="flow-arrow anim-up d4">→</div>
+      <div class="flow-step anim-up d5" style="background:rgba(174,203,167,0.18);border:1px solid rgba(174,203,167,0.25);">
+        <div class="flow-num" style="color:var(--sage-400);">3</div>
+        <div class="flow-label" style="color:var(--sage-600);">Explore</div>
+        <div class="flow-desc">สำรวจเข็มกลัด<br>อ่านคำสอน คำคม</div>
+      </div>
+      <div class="flow-arrow anim-up d5">→</div>
+      <div class="flow-step anim-up d6" style="background:rgba(174,203,167,0.18);border:1px solid rgba(174,203,167,0.25);">
+        <div class="flow-num" style="color:var(--sage-400);">4</div>
+        <div class="flow-label" style="color:var(--sage-600);">Connect</div>
+        <div class="flow-desc">เชื่อมโยงสถานที่<br>กับดินปั้นและยาดม</div>
+      </div>
+      <div class="flow-arrow anim-up d6">→</div>
+      <div class="flow-step anim-up d7" style="background:rgba(94,143,85,0.15);border:2px solid var(--sage-400);">
+        <div class="flow-num" style="color:var(--sage-600);">5</div>
+        <div class="flow-label" style="color:var(--sage-600);">Remember & Share</div>
+        <div class="flow-desc">เก็บสะสม<br>แชร์ใน Social Media</div>
+      </div>
+    </div>
+    
+    <div class="accent-box anim-up d8" style="max-width:700px;margin:2rem auto 0;text-align:center;">
+      <div class="accent-box-text" style="font-size:1.05rem;">ประสบการณ์จึงเน้นการ <strong>ค้นพบและจดจำเรื่องราว</strong> มากกว่าการให้ผู้ใช้งานสร้างชิ้นงานขึ้นมาเอง</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 12: SECTION 4 HEADER ============================== -->
+<div class="slide t-teal" data-slide="12">
+  <div class="deco-circle deco-float" style="width:550px;height:550px;top:-200px;left:-160px;background:radial-gradient(circle,rgba(139,196,196,0.1),transparent 70%);"></div>
+  <div class="deco-circle deco-float-rev" style="width:400px;height:400px;bottom:-130px;right:-100px;background:radial-gradient(circle,rgba(198,227,227,0.12),transparent 70%);"></div>
+  <div class="deco-mandala deco-spin" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.03;"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.3"/><circle cx="100" cy="100" r="65" fill="none" stroke="currentColor" stroke-width="0.3"/><g stroke="currentColor" stroke-width="0.3" fill="none"><path d="M100,10 Q118,50 100,100 Q82,50 100,10"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(72,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(144,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(216,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(288,100,100)"/></g></svg></div>
+  
+  <div class="section-header-wrap">
+    <div class="section-num anim-scale">04</div>
+    <div class="section-en-title anim-up d1">Management & Diffusion Strategy</div>
+    <div class="section-th-title anim-up d2">กลยุทธ์การบริหารและการสื่อสาร</div>
+    <div class="ornament-line anim-scale d3"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 13: STRATEGY DETAILS ============================== -->
+<div class="slide t-teal" data-slide="13">
+  <div class="deco-circle deco-float" style="width:450px;height:450px;bottom:-150px;right:-120px;background:radial-gradient(circle,rgba(139,196,196,0.1),transparent 70%);"></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">4.1 — 4.3</div>
+    <div class="content-title anim-up d1">Cultural Diplomacy ✦ Distribution ✦ Community</div>
+    <div class="ornament-line anim-scale d2"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="p-card anim-up d3">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--teal-300),var(--teal-500));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <div class="p-card-title">4.1 Cultural Diplomacy & Media</div>
+        <div class="p-card-text">ใช้ Social Media เป็นช่องทางหลัก เน้นการเล่าเรื่องสถานที่ที่ไม่ค่อยเป็นที่รู้จัก ผ่าน Content ที่เหมาะกับคนรุ่นใหม่<br><br><strong style="color:var(--teal-500);">Short Video ✦ TikTok ✦ Instagram</strong></div>
+      </div>
+      <div class="p-card anim-up d4">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--teal-400),var(--teal-600));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <div class="p-card-title">4.2 Distribution & Pricing</div>
+        <div class="p-card-text">ช่องทางจำหน่ายที่เข้าถึงกลุ่มเป้าหมาย และการตั้งราคาเพื่อสะท้อนมูลค่าทางวัฒนธรรมที่แท้จริง</div>
+      </div>
+      <div class="p-card anim-up d5">
+        <div class="p-card-icon" style="background:linear-gradient(135deg,var(--teal-500),var(--teal-600));">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="p-card-title">4.3 Supply Chain & Community</div>
+        <div class="p-card-text">การผลิตเชื่อมโยงกับชุมชน รวบรวมข้อมูลสถานที่ วัฒนธรรม ต่อยอดให้ช่างฝีมือท้องถิ่นมีส่วนร่วม</div>
+      </div>
+    </div>
+    
+    <div class="accent-box anim-up d6" style="max-width:750px;margin:2rem auto 0;text-align:center;">
+      <div class="accent-box-text" style="font-size:1.1rem;">สร้างรายได้และ <strong>กระจายคุณค่ากลับไปยังชุมชน</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 14: SECTION 5 HEADER ============================== -->
+<div class="slide t-coral" data-slide="14">
+  <div class="deco-circle deco-float" style="width:500px;height:500px;top:-180px;right:-130px;background:radial-gradient(circle,rgba(240,174,156,0.1),transparent 70%);"></div>
+  <div class="deco-circle deco-float-rev" style="width:380px;height:380px;bottom:-120px;left:-100px;background:radial-gradient(circle,rgba(249,213,203,0.12),transparent 70%);"></div>
+  <div class="deco-mandala deco-spin" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.03;"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.3"/><circle cx="100" cy="100" r="65" fill="none" stroke="currentColor" stroke-width="0.3"/><g stroke="currentColor" stroke-width="0.3" fill="none"><path d="M100,10 Q118,50 100,100 Q82,50 100,10"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(60,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(120,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(180,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(240,100,100)"/><path d="M100,10 Q118,50 100,100 Q82,50 100,10" transform="rotate(300,100,100)"/></g></svg></div>
+  
+  <div class="section-header-wrap">
+    <div class="section-num anim-scale">05</div>
+    <div class="section-en-title anim-up d1">Soft Power Impact Metrics</div>
+    <div class="section-th-title anim-up d2">การประเมินผลกระทบ</div>
+    <div class="ornament-line anim-scale d3"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 15: IMPACT METRICS ============================== -->
+<div class="slide t-coral" data-slide="15">
+  <div class="deco-circle deco-float-rev" style="width:450px;height:450px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(240,174,156,0.1),transparent 70%);"></div>
+  
+  <div class="content-area">
+    <div class="content-label anim-up">5.1 — 5.2</div>
+    <div class="content-title anim-up d1">Economic & Cultural Impact</div>
+    <div class="ornament-line anim-scale d2"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div class="anim-left d3">
+        <div style="font-size:1.15rem;font-weight:600;color:var(--coral-600);margin-bottom:1.2rem;">5.1 Economic Impact</div>
+        <div class="content-body" style="margin-bottom:1.2rem;">ด้านเศรษฐกิจ: การสร้างรายได้ การขยายการผลิต โอกาสในการส่งออก</div>
+        
+        <div class="metric-cards anim-up d4">
+          <div class="metric-card">
+            <div class="mc-icon" style="background:linear-gradient(135deg,var(--coral-300),var(--coral-500));">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div class="mc-label">ยอดขาย</div>
+          </div>
+          <div class="metric-card">
+            <div class="mc-icon" style="background:linear-gradient(135deg,var(--coral-400),var(--coral-600));">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            </div>
+            <div class="mc-label">จำนวนกล่อง</div>
+          </div>
+          <div class="metric-card">
+            <div class="mc-icon" style="background:linear-gradient(135deg,var(--coral-500),var(--coral-600));">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div class="mc-label">ชุมชนร่วม</div>
+          </div>
+        </div>
+        
+        <div class="content-body anim-up d5" style="margin-top:1rem;font-size:0.95rem;">
+          วัดผลระยะยาวจากจำนวนผู้ซื้อที่เดินทางไปยังจังหวัด สร้างรายได้ให้ร้านอาหาร ร้านค้า ที่พัก สถานที่ท่องเที่ยว
+        </div>
+      </div>
+      
+      <div class="anim-right d4">
+        <div style="font-size:1.15rem;font-weight:600;color:var(--coral-600);margin-bottom:1.2rem;">5.2 Cultural & Perception Impact</div>
+        <div class="content-body" style="margin-bottom:1.5rem;">ผลิตภัณฑ์นี้ช่วยยกระดับภาพลักษณ์และทัศนคติที่มีต่อวัฒนธรรมไทย</div>
+        
+        <div class="accent-box" style="background:rgba(224,130,110,0.1);">
+          <div class="accent-box-title" style="color:var(--coral-500);">ยกระดับ Soft Power ไทย</div>
+          <div class="accent-box-text">ทำให้คนสนใจ → เข้าใจ → จดจำ → อยากมีส่วนร่วมกับวัฒนธรรมท้องถิ่น</div>
+        </div>
+        
+        <div class="chain-flow anim-up d6" style="margin-top:1.5rem;">
+          <div class="chain-item">
+            <div class="ci-icon" style="background:linear-gradient(135deg,var(--coral-300),var(--coral-400));">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div class="ci-label" style="font-size:0.75rem;">สนใจ</div>
+          </div>
+          <div class="chain-arrow" style="font-size:1rem;">→</div>
+          <div class="chain-item">
+            <div class="ci-icon" style="background:linear-gradient(135deg,var(--coral-400),var(--coral-500));">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </div>
+            <div class="ci-label" style="font-size:0.75rem;">เข้าใจ</div>
+          </div>
+          <div class="chain-arrow" style="font-size:1rem;">→</div>
+          <div class="chain-item">
+            <div class="ci-icon" style="background:linear-gradient(135deg,var(--coral-500),var(--coral-600));">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div class="ci-label" style="font-size:0.75rem;">จดจำ</div>
+          </div>
+          <div class="chain-arrow" style="font-size:1rem;">→</div>
+          <div class="chain-item">
+            <div class="ci-icon" style="background:linear-gradient(135deg,var(--pink-400),var(--pink-600));box-shadow:0 0 15px rgba(232,138,173,0.3);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="ci-label" style="font-size:0.75rem;font-weight:600;">มีส่วนร่วม</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SLIDE 16: CLOSING ============================== -->
+<div class="slide t-dark" data-slide="16">
+  <div class="deco-circle deco-float" style="width:500px;height:500px;top:-150px;right:-120px;background:radial-gradient(circle,rgba(244,180,201,0.06),transparent 70%);"></div>
+  <div class="deco-circle deco-float-rev" style="width:400px;height:400px;bottom:-100px;left:-80px;background:radial-gradient(circle,rgba(212,168,83,0.05),transparent 70%);"></div>
+  <div class="deco-circle deco-pulse" style="width:300px;height:300px;top:35%;left:15%;background:radial-gradient(circle,rgba(174,203,167,0.04),transparent 70%);"></div>
+  
+  <div class="deco-mandala deco-spin" style="width:800px;height:800px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.025;">
+    <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="95" fill="none" stroke="rgba(244,180,201,0.4)" stroke-width="0.2"/><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(212,168,83,0.3)" stroke-width="0.2"/><circle cx="100" cy="100" r="65" fill="none" stroke="rgba(244,180,201,0.25)" stroke-width="0.2"/><circle cx="100" cy="100" r="50" fill="none" stroke="rgba(212,168,83,0.2)" stroke-width="0.2"/><g stroke="rgba(244,180,201,0.2)" stroke-width="0.2" fill="none"><path d="M100,5 Q118,50 100,100 Q82,50 100,5"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(30,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(60,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(90,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(120,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(150,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(180,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(210,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(240,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(270,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(300,100,100)"/><path d="M100,5 Q118,50 100,100 Q82,50 100,5" transform="rotate(330,100,100)"/></g></svg>
+  </div>
+  
+  <div class="title-wrap" style="z-index:5;">
+    <div class="title-lotus-icon anim-scale" style="width:70px;height:70px;">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="lotusGrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F4B4C9"/><stop offset="50%" style="stop-color:#E88AAD"/><stop offset="100%" style="stop-color:#D4688E"/></linearGradient></defs>
+        <path d="M50,15 Q60,35 50,55 Q40,35 50,15" fill="url(#lotusGrad2)" opacity="0.9"/>
+        <path d="M30,25 Q45,38 40,58 Q28,40 30,25" fill="url(#lotusGrad2)" opacity="0.7"/>
+        <path d="M15,40 Q32,45 35,62 Q18,52 15,40" fill="url(#lotusGrad2)" opacity="0.5"/>
+        <path d="M70,25 Q55,38 60,58 Q72,40 70,25" fill="url(#lotusGrad2)" opacity="0.7"/>
+        <path d="M85,40 Q68,45 65,62 Q82,52 85,40" fill="url(#lotusGrad2)" opacity="0.5"/>
+        <ellipse cx="50" cy="62" rx="22" ry="6" fill="url(#lotusGrad2)" opacity="0.3"/>
+      </svg>
+    </div>
+    
+    <div class="title-eyebrow anim-up d1">Thank You</div>
+    
+    <h2 class="anim-up d2" style="font-family:'Prompt',sans-serif;font-size:3rem;font-weight:700;margin-bottom:0.8rem;background:linear-gradient(135deg,#fff,var(--pink-200),var(--gold-200));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.4;">
+      เปิดกล่อง เปิดโลกท้องถิ่น
+    </h2>
+    
+    <div class="ornament-line anim-scale d3" style="color:var(--gold-400);"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    
+    <p class="anim-up d4" style="font-family:'Prompt',sans-serif;font-size:1.3rem;color:rgba(255,255,255,0.5);font-weight:300;line-height:2;margin-top:1rem;">
+      การพัฒนาผลิตภัณฑ์ต้นแบบ Soft Power<br>
+      หนึ่งกล่อง ✦ หนึ่งจังหวัด ✦ หนึ่งเรื่องราว
+    </p>
+    
+    <div class="icon-grid anim-up d5" style="margin-top:2.5rem;gap:2rem;">
+      <div class="icon-cell">
+        <div class="ic" style="background:linear-gradient(135deg,var(--pink-500),var(--pink-700));width:50px;height:50px;border-radius:16px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.4 7 11.5 7.3 11.8a1 1 0 001.4 0C13 21.5 20 15.4 20 10a8 8 0 00-8-8z"/></svg>
+        </div>
+        <div class="ic-label" style="color:rgba(255,255,255,0.4);font-size:0.8rem;">เข็มกลัด</div>
+      </div>
+      <div class="icon-cell">
+        <div class="ic" style="background:linear-gradient(135deg,var(--teal-400),var(--teal-600));width:50px;height:50px;border-radius:16px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M6 12h12"/></svg>
+        </div>
+        <div class="ic-label" style="color:rgba(255,255,255,0.4);font-size:0.8rem;">ยาดม</div>
+      </div>
+      <div class="icon-cell">
+        <div class="ic" style="background:linear-gradient(135deg,var(--coral-400),var(--coral-600));width:50px;height:50px;border-radius:16px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C8 2 5 6 5 12c0 4 2 7 3 8h8c1-1 3-4 3-8 0-6-3-10-7-10z"/><path d="M8 20h8v2H8z"/></svg>
+        </div>
+        <div class="ic-label" style="color:rgba(255,255,255,0.4);font-size:0.8rem;">ดินปั้น</div>
+      </div>
+      <div class="icon-cell">
+        <div class="ic" style="background:linear-gradient(135deg,var(--gold-400),var(--gold-600));width:50px;height:50px;border-radius:16px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <div class="ic-label" style="color:rgba(255,255,255,0.4);font-size:0.8rem;">กล่องเหล็ก</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav-bar">
+  <button class="nav-btn" onclick="prevSlide()">‹</button>
+  <div class="nav-dots" id="navDots"></div>
+  <span class="nav-counter" id="navCounter">1 / 17</span>
+  <button class="nav-btn" onclick="nextSlide()">›</button>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+const dotsContainer = document.getElementById('navDots');
+const counter = document.getElementById('navCounter');
+const progressBar = document.getElementById('progressBar');
+
+for (let i = 0; i < total; i++) {
+  const dot = document.createElement('div');
+  dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+  dot.onclick = () => goTo(i);
+  dotsContainer.appendChild(dot);
+}
+
+function updateProgress() {
+  const pct = ((current) / (total - 1)) * 100;
+  progressBar.style.width = pct + '%';
+}
+
+function goTo(n) {
+  if (n < 0 || n >= total) return;
+  slides[current].classList.remove('active');
+  document.querySelectorAll('.nav-dot')[current].classList.remove('active');
+  current = n;
+  slides[current].classList.add('active');
+  document.querySelectorAll('.nav-dot')[current].classList.add('active');
+  counter.textContent = (current + 1) + ' / ' + total;
+  updateProgress();
+}
+
+function nextSlide() { goTo(current + 1); }
+function prevSlide() { goTo(current - 1); }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') { e.preventDefault(); nextSlide(); }
+  if (e.key === 'ArrowLeft' || e.key === 'Backspace') { e.preventDefault(); prevSlide(); }
+  if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+  if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  if (e.key === 'f' || e.key === 'F') {
+    if (!document.fullscreenElement) { document.documentElement.requestFullscreen(); }
+    else { document.exitFullscreen(); }
+  }
+});
+
+let touchX = 0;
+document.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].screenX; });
+document.addEventListener('touchend', (e) => {
+  const diff = touchX - e.changedTouches[0].screenX;
+  if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
+});
+
+updateProgress();
+</script>
+
+</body>
+</html>
